@@ -37,7 +37,6 @@ class MongoDB(object):
         return result_id
 
     # Update data in mongo collection
-    # ----- SOMETHING IS WRONG WITH UPDATE METHOD -----
     def update_one(self, document_id, data):
         data['updatedAt'] = datetime.datetime.utcnow()
         result = self.dbCollection.update_one({'_id': ObjectId(document_id) }, { '$set': data })
