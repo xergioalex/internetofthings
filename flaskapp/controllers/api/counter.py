@@ -7,13 +7,14 @@ import json
 
 def get_counter():
     if request.method == 'GET':
+        print('Entraaa')
         mongodb = MongoDB('counters')
         result = mongodb.find_one()
         if result is None:
             resultId = mongodb.insert_one({ "counter": 0 })
             result = mongodb.find_one(resultId)
         result = mongodb.encode(result)
-        mongodb.close()
+        mongodb.close()        
 
         return jsonify(dict(status="success", details = result))
     else:
