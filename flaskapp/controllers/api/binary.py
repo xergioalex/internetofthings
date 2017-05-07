@@ -15,7 +15,7 @@ def get_binary():
         result = mongodb.encode(result)
         mongodb.close()
 
-        return jsonify(dict(status="success", details = result))
+        return jsonify(result["value"])
     else:
         resp = jsonify(dict(status="error", details="method not allowed"))
         resp.status_code = 400
