@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 class MongoDB(object):
 
     def __init__(self, collection='results', db='iot'):
-        self.client = MongoClient('mongodb', 27017)
+        self.client = MongoClient('localhost', 27017)
         self.database = self.client[db]
         self.dbCollection = self.database[collection]
 
